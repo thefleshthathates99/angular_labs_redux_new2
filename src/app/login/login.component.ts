@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from "@angular/common/http";
+
 
 
 @Component({
@@ -9,33 +11,20 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private http: HttpClient) { 
         
   }
 
   ngOnInit() {
+
   }
 
   email:String = "";
   password:String = "";
 
-  ;
-
   loginClicked(){
-    console.log("Clicked the BUTTTON");
-    if (this.email == "abc123@gmail.com" && this.password == "123"){
-      this.router.navigateByUrl('/account');
-    }
-    else if (this.email == "new123@gmail.com" && this.password == "123"){
-      this.router.navigateByUrl('/account');
-    }
-    else if (this.email == "old666@gmail.com" && this.password == "123"){
-      this.router.navigateByUrl('/account');
-    }
-    else {
-      alert("INCORRECT PASSWORD")
-    };
+    console.log("Trying to connect to api/auth")
 
   }
 
-}
+};
